@@ -17,12 +17,11 @@ void fillMagicSquare(int n){
     int row=0,column=n/2;
     for(int number=1;number<=n*n;number++){
         magicSquare[row][column]=number;
-        //if row overflows or column underflows bring them into range by using mod.
+        //if row underflows or column overflows bring them into range by using mod.
         if(magicSquare[(row-1)%n<0?(row-1)+n:row-1][(column+1)%n]==0){
-            row=(row-1)%n<0?(row-1)+n:row-1;
+            row=(row-1)%n<0?(row-1)+n:row-1;//since modulus operation gives negative number in c it is turned to positive number by adding n
             column=(column+1)%n;
-        }
-		else{
+        }else{
             row=row+1;
         }
     }
